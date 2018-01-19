@@ -1,0 +1,35 @@
+{
+  "name": "bryankroesbeek.nl",
+  "version": "0.0.0",
+  "description": "My personal website",
+  "main": "site.js",
+  "scripts": {},
+  "dependencies": {
+    "typescript": "^2.6.2",
+    "source-map-loader": "^0.2.3",
+    "awesome-typescript-loader": "^3.4.1",
+    "@types/react": "^16.0.34",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-router": "^4.0.20",
+    "@types/react-router-dom": "^4.2.3",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "webpack": "^3.10.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-clean-css": "^3.9.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bryankroesbeek/bryankroesbeek.nl.git"
+  },
+  "author": "Bryan Kroesbeek",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bryankroesbeek/bryankroesbeek.nl/issues"
+  },
+  "homepage": "https://github.com/bryankroesbeek/bryankroesbeek.nl#readme"
+}
