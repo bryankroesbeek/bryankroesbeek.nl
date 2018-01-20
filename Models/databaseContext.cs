@@ -6,15 +6,22 @@ namespace BryankroesbeekNl.Models
 {
     public partial class databaseContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            if (!optionsBuilder.IsConfigured)
-            {
-                optionsBuilder.UseSqlite(@"Filename=./dbname");
-            }
-        }
+        public virtual DbSet<InfoBlock> InfoBlock { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        { }
+        {
+            modelBuilder.Entity<InfoBlock>(entity =>
+            {
+                entity.Property(e => e.Id).ValueGeneratedNever();
+
+                entity.Property(e => e.Content).IsRequired();
+
+                entity.Property(e => e.CreatedDate).IsRequired();
+
+                entity.Property(e => e.Title).IsRequired();
+
+                entity.Property(e => e.UpdatedDate).IsRequired();
+            });
+        }
     }
 }
