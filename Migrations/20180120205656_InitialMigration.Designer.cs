@@ -19,6 +19,15 @@ namespace BryankroesbeekNl.Migrations
                 .HasAnnotation("ChangeDetector.SkipDetectChanges", "true")
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
 #pragma warning restore 612, 618
+
+            modelBuilder.Entity("BryankroesbeekNl.Models.InfoBlock", b =>
+            {
+                b.Property<int>("Id").ValueGeneratedOnAdd();
+                b.Property<string>("Title");
+                b.Property<string>("Content");
+                b.Property<DateTime>("CreatedDate");
+                b.Property<DateTime>("UpdatedDate");
+            });
         }
     }
 }
