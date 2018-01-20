@@ -7,8 +7,10 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BryankroesbeekNl.Controllers
 {
+    [Route("{*url}")]
     public class HomeController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
