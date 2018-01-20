@@ -2,7 +2,7 @@ var gulp = require('gulp');
 var concat = require('gulp-concat');
 var cleanCSS = require('gulp-clean-css');
 
-var cssPath = 'Client/css/**/*.css';
+var cssPath = 'Client/stylesheets/**/*.css';
 
 gulp.task('css', () => {
     return gulp.src(cssPath)
