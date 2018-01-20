@@ -339,5 +339,8 @@ typings/
 !.vscode/extensions.json
 .history
 
+appsettings*
+!appsettings.Template.json
+
 
 # End of https://www.gitignore.io/api/node,aspnetcore,visualstudiocode
