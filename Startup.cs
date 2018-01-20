@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-// using BryankroesbeekNl.Models;
+using BryankroesbeekNl.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,10 +23,10 @@ namespace BryankroesbeekNl
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddDbContext<DatabaseContext>(options =>
-            // {
-            //     options.UseSqlite(Configuration.GetConnectionString("DatabaseConnection"));
-            // });
+            services.AddDbContext<databaseContext>(options =>
+            {
+                options.UseSqlite(Configuration.GetConnectionString("DatabaseConnection"));
+            });
             
             services.AddMvc();
         }
