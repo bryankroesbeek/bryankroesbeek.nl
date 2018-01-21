@@ -1,0 +1,55 @@
+/* future styling */
+*{
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+.block{
+    padding: 10px;
+    border: 2px solid #568656;
+    margin: 10px;
+    display: flex;
+}
+
+.block__form{
+    @extend .block;
+}
+
+.input__fields{
+    display: block;
+    align-content: left;
+}
+
+.button__input{
+    width: 75px;
+    height: 75px;
+    margin-left: auto;
+}
+
+.button__delete{
+    @extend .button__input;
+    border: 2px solid #771616;
+    background: #aa1616;
+    color: #dddddd;
+}
+
+.button__submit{
+    @extend .button__input;
+    border: 2px solid #167716;
+    background: #16aa16;
+    color: #dddddd;
+}
+
+.input__text{
+    border: 2px solid #00FF00;
+    height: 25px;
+    display: block;
+}
+.input__text_area{
+    @extend .input__text;
+    height: 75px;
+}
