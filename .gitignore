@@ -344,4 +344,4 @@ appsettings*
 
 
 # End of https://www.gitignore.io/api/node,aspnetcore,visualstudiocode
-database.db
+[dD]atabase.db
