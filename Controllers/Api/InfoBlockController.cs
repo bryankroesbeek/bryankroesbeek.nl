@@ -9,8 +9,8 @@ namespace BryankroesbeekNl.Controllers.Api
     [Route("api/[controller]")]
     public class InfoBlockController : Controller
     {
-        private databaseContext Context { get; set; }
-        public InfoBlockController(databaseContext context)
+        private BryankroesbeekNlContext Context { get; set; }
+        public InfoBlockController(BryankroesbeekNlContext context)
         {
             this.Context = context;
         }
@@ -22,15 +22,28 @@ namespace BryankroesbeekNl.Controllers.Api
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody] InfoBlock infoBlock){
-            this.Context.InfoBlock.AddRange(new InfoBlock{
+        public IActionResult Post([FromBody] InfoBlock infoBlock)
+        {
+            this.Context.InfoBlock.Add(new InfoBlock
+            {
                 Title = infoBlock.Title,
                 Content = infoBlock.Content,
-                CreatedDate = DateTime.Now.ToShortDateString(),
-                UpdatedDate = DateTime.Now.ToShortDateString()
+                Created = DateTime.Now,
+                Updated = DateTime.Now
             });
             this.Context.SaveChanges();
 
+            return Ok();
+        }
+
+        [HttpDelete]
+        public IActionResult Delete([FromBody] int id)
+        {
+            var block = this.Context.InfoBlock.Where(x => x.Id == id).FirstOrDefault();
+
+            if (block == null) return NotFound();
+            this.Context.Remove<InfoBlock>(block);
+            this.Context.SaveChanges();
             return Ok();
         }
     }

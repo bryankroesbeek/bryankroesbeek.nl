@@ -23,9 +23,9 @@ namespace BryankroesbeekNl
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<databaseContext>(options =>
+            services.AddDbContext<BryankroesbeekNlContext>(options =>
             {
-                options.UseSqlite(Configuration.GetConnectionString("DatabaseConnection"));
+                options.UseMySql(Configuration.GetConnectionString("BryankroesbeekNlConnection"));
             });
             
             services.AddMvc();
