@@ -1,6 +1,19 @@
+@import 'imports';
+@import 'header/header';
 /* future styling */
+
 *{
     margin: 0;
 	padding: 0;
 	border: 0;
+}
+
+.page{
+    width: 100%;
+}
+
+.content{
+    display: block;
+    width: 1250px;
+    margin: 0 auto;
 }
