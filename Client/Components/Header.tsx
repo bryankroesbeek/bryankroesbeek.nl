@@ -20,7 +20,7 @@ export let Header = (
                     {/* </div> */}
                     <div className="header__nav">
                         {props.links.map((link, int) =>
-                            <Link className="nav__link-active" to={link.url} key={`nav_${int}`} >
+                            <Link className="nav__link" to={link.url} key={`nav_${int}`} >
                                 <span className="nav__item">
                                     <label className="item__label">
                                         {link.title}
