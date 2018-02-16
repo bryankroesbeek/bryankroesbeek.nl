@@ -12,8 +12,8 @@
 
 .header__name{
     text-decoration: none;
-    font-family: 'Dancing Script';
-    font-weight: 700;
+    font-family: 'Roboto Condensed';
+    font-weight: 500;
     font-size: 30px;
     margin: auto 0;
     color: #464646;
@@ -28,11 +28,16 @@
 
 .nav__link{
     text-decoration: none;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 600;
+    font-family: 'Roboto Mono';
+    font-weight: 400;
+    font-style: italic;
     color: #4b4b4b;
     padding: 0 20px;
     text-align: center;
+}
+
+.link-active {
+    color: #ffffff;
 }
 
 .nav__item{
