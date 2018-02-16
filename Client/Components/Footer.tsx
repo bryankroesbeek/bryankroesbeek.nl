@@ -1,10 +1,10 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
 
-let Header = (
+export let Footer = (
     props: {}
 ) => (
     <footer>
-        
+        ...
     </footer>
 )
