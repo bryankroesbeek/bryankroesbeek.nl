@@ -6,6 +6,7 @@ import { Header } from './Components/Header'
 import { Home } from './Components/Home/Home'
 
 import * as Types from './api/types'
+import { Footer } from './Components/Footer';
 
 type MainState = {
     links: Types.NavItem[]
@@ -33,6 +34,8 @@ export class MainRouter extends React.Component<{}, MainState>{
 
                     <Route exact path="/" component={() => <Home />} />
                     <Route path="/example" component={() => <div>Example</div>} />
+
+                    <Footer />
                 </div>
             </BrowserRouter>
         )
