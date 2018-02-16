@@ -8,28 +8,39 @@ type Props = {
     links: Types.NavItem[]
 }
 
-export let Header = (
-    props: Props
-) => (
-        <header className="header">
-            <div className="content">
-                <div className="header__content">
-                    {/* <div className="header__logo"> */}
-                    {/* <img src="images/logo.png" alt="Bryan Kroesbeek" /> */}
-                    <Link className="header__name" to="/">Bryan Kroesbeek</Link>
-                    {/* </div> */}
-                    <div className="header__nav">
-                        {props.links.map((link, int) =>
-                            <Link className="nav__link" to={link.url} key={`nav_${int}`} >
-                                <span className="nav__item">
-                                    <span className="item__label">
-                                        {link.title}
+type State = {
+    links: Types.NavItem[]
+}
+
+export class Header extends React.Component<Props, State> {
+    constructor(props: Props) {
+        super(props)
+
+        this.state = {
+            links: props.links
+        }
+    }
+
+    render() {
+        return (
+            <header className="header">
+                <div className="content">
+                    <div className="header__content">
+                        <Link className="header__name" to="/">Bryan Kroesbeek</Link>
+                        <div className="header__nav">
+                            {this.state.links.map((link, key) =>
+                                <Link to={link.url} key={`nav_${key}`} className={"nav__link"} >
+                                    <span className="nav__item">
+                                        <span className="item__label">
+                                            {link.title}
+                                        </span>
                                     </span>
-                                </span>
-                            </Link>
-                        )}
+                                </Link>
+                            )}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </header>
-    )
+            </header>
+        )
+    }
+}
