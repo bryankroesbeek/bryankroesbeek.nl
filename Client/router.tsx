@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Link, Redirect, Switch } from 'react-router-dom'
 
 import { Header } from './Components/Header'
 import { Home } from './Components/Home/Home'
+import { Projects } from './Components/Projects/Projects'
 
 import * as Types from './api/types'
 import { Footer } from './Components/Footer'
@@ -34,7 +35,7 @@ export class MainRouter extends React.Component<{}, MainState>{
                     <div className="content">
                         <Switch>
                             <Route exact path="/" component={() => <Home />} />
-                            <Route path="/projects" component={() => <div>lel</div>} />
+                            <Route path="/projects" component={() => <Projects />} />
                             <Route component={() => <div>Not Found</div>} />
                         </Switch>
                     </div>
