@@ -10,6 +10,7 @@ type Props = {
 
 type State = {
     links: Types.NavItem[]
+    opened_mobile: boolean
 }
 
 export class Header extends React.Component<Props, State> {
@@ -17,7 +18,8 @@ export class Header extends React.Component<Props, State> {
         super(props)
 
         this.state = {
-            links: props.links
+            links: props.links,
+            opened_mobile: false
         }
     }
 
@@ -27,7 +29,7 @@ export class Header extends React.Component<Props, State> {
                 <div className="content">
                     <div className="header__content">
                         <Link className="header__name" to="/">Bryan Kroesbeek</Link>
-                        <div className="header__nav">
+                        <div className={`header__nav${this.state.opened_mobile ? " responsive" : ""}`}>
                             {this.state.links.map((link, key) =>
                                 <Link to={link.url} key={`nav_${key}`} className={"nav__link"} >
                                     <span className="nav__item">
@@ -37,6 +39,9 @@ export class Header extends React.Component<Props, State> {
                                     </span>
                                 </Link>
                             )}
+                            <Link to="#" className="header-icon__responsive" onClick={() => {
+                                this.setState({ ...this.state, opened_mobile: !this.state.opened_mobile })
+                            }} >&#9776;</Link>
                         </div>
                     </div>
                 </div>

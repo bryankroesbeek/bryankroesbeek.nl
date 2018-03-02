@@ -1,32 +1,30 @@
-@import 'variables';
-
-.header{
+.header {
     background: #66dd26;
     border-bottom: 1px solid darken($color: #66dd26, $amount: 15);
 }
 
-.header__content{
+.header__content {
     display: flex;
     height: $header_height;
 }
 
-.header__name{
+.header__name {
     text-decoration: none;
     font-family: 'Roboto Condensed';
     font-weight: 500;
     font-size: 30px;
-    margin: auto 0;
+    margin: auto 0 auto 10px;
     color: #464646;
 }
 
-.header__nav{
+.header__nav {
     display: flex;
     justify-content: space-between;
     height: 100%;
     margin: 0 0 0 auto;
 }
 
-.nav__link{
+.nav__link {
     text-decoration: none;
     font-family: 'Roboto Mono';
     font-weight: 400;
@@ -34,22 +32,24 @@
     color: #4b4b4b;
     padding: 0 20px;
     text-align: center;
+    .nav__link-active {
+        border-bottom: 5px solid #464646;
+    }
 }
 
 .link-active {
     color: #ffffff;
 }
 
-.nav__item{
+.nav__item {
     display: inline-flex;
     height: 100%
 }
 
-.item__label{
+.item__label {
     margin: auto;
 }
 
-.nav__link-active{
-    @extend .nav__link;
-    border-bottom: 5px solid #464646;
+.header-icon__responsive {
+    display: none;
 }
