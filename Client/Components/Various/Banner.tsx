@@ -19,17 +19,15 @@ export let Banner = (
             <div className="banner-image-wrapper"></div>
             <div className="banner-content">
                 {
-                    props.content.type === "Quote" ? <>
-                        <h1 className="banner-quote-text">{props.content.text}</h1>
-                        <h3 className="banner-quote-author">{props.content.author}</h3>
-                    </>
-                        :
+                    props.content.type === "Quote" ?
                         <>
+                            <h1 className="banner-quote-text">{props.content.text}</h1>
+                            <h3 className="banner-quote-author">{props.content.author}</h3>
+                        </> : <>
                             <h1 className="banner-title">{props.content.title}</h1>
                         </>
                 }
             </div>
-
         </div>
     </div>
 }
