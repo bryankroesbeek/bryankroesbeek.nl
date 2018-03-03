@@ -2,6 +2,8 @@ import * as React from 'react'
 import * as ReactDom from 'react-dom'
 import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
+import { Banner } from '../Various/Banner'
+
 type HomeState = {
 
 }
@@ -18,18 +20,7 @@ export class Home extends React.Component<{}, HomeState>{
                 </div>
                 <img className="introduction-image" src="/images/bryan.jpg" alt="This is me" />
             </div>
-            <div className="quote">
-                <div className="quote-background">
-                    <div className="quote-image-wrapper">
-                        <img className="quote-image" src="images/pattern.svg" />
-                    </div>
-                    <div className="quote-content">
-                        <h1 className="quote-text">Bryan Kroesbeek</h1>
-                        {/* <h3 className="quote-author">- Bryan Kroesbeek</h3> */}
-                    </div>
-
-                </div>
-            </div>
+            <Banner content={{type: "Banner", title: "Some sample text to test out my new banner"}} />
 
             <div className="">
 

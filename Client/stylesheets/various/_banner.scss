@@ -1,0 +1,48 @@
+$banner-height: 300px;
+
+.banner-background{
+    height: $banner-height;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.banner-image-wrapper{
+    height: $banner-height;
+    width: 100%;
+    position: absolute;
+    display: inline-flex;
+    z-index: -1;
+    background: url('/images/pattern.svg');
+    background-position-x: center;
+    overflow: hidden;
+}
+
+.banner-content{
+    width: 85%;
+    margin: auto;
+    font-family: 'Raleway';
+    color: #eeeeee;
+    display: block;
+    .banner-quote-text{
+        width: 100%;
+        float: left;
+        padding: 5px;
+        font-weight: 600;
+    }
+    .banner-quote-author{
+        float: right;
+        margin: 0 0 0 auto;
+        font-weight: 400;
+    }
+    .banner-title{
+        font-size: 40px;
+        width: 100%;
+        text-align: center;
+        font-weight: 400;
+    }
+}
+
+.banner{
+    height: $banner-height;
+}
