@@ -27,7 +27,9 @@ namespace BryankroesbeekNl
             // {
             //     options.UseMySql(Configuration.GetConnectionString("BryankroesbeekNlConnection"));
             // });
-            
+
+            services.AddSingleton<IConfiguration>(Configuration);           
+
             services.AddMvc();
         }
 
