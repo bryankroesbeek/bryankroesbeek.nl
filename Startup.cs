@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-// using BryankroesbeekNl.Models;
+using BryankroesbeekNl.Models;
 
 namespace BryankroesbeekNl
 {
@@ -23,12 +23,12 @@ namespace BryankroesbeekNl
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // services.AddDbContext<BryankroesbeekNlContext>(options =>
-            // {
-            //     options.UseMySql(Configuration.GetConnectionString("BryankroesbeekNlConnection"));
-            // });
+            services.AddDbContext<BryankroesbeekNlContext>(options =>
+            {
+                options.UseMySql(Configuration.GetConnectionString("BryankroesbeekNlConnection"));
+            });
 
-            services.AddSingleton<IConfiguration>(Configuration);           
+            services.AddSingleton<IConfiguration>(Configuration);
 
             services.AddMvc();
         }
