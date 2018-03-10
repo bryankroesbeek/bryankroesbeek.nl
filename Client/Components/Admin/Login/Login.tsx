@@ -24,7 +24,6 @@ export class Login extends React.Component<LoginProps, LoginState> {
     login(input: React.FormEvent<HTMLFormElement>) {
         input.preventDefault()
         this.setState({ ...this.state, wrong: !this.state.wrong })
-        console.log(this.state)
         // window.location.href = "/admin"
     }
 
@@ -33,7 +32,7 @@ export class Login extends React.Component<LoginProps, LoginState> {
             <div className="login-block">
                 <div className="login-content">
                     <div className="login-title">
-                        <h2 className={`title-text ${this.state.wrong && 'wrong'}`}>Login</h2>
+                        <h2 className={`title-text${this.state.wrong ? ' wrong' : ""}`}>Login</h2>
                     </div>
                     <form className="login-form" onSubmit={e => this.login(e)} >
                         <div className="login-fields">
