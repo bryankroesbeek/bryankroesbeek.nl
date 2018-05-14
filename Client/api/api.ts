@@ -1,3 +1,5 @@
+import { Repository } from "./types";
+
 export function getResources<T>(url: string) {
     return fetch(url)
         .then(r => r.json())
@@ -26,4 +28,11 @@ export function deleteResources(url: string, id: number) {
         headers: headers,
         body: JSON.stringify(id)
     })
+}
+
+export async function getRepositories(): Promise<Repository[]> {
+    let res = await fetch('/api/github/repos')
+    let json = await res.json()
+
+    return json
 }
