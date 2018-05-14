@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace BryankroesbeekNl.Models
+namespace BryankroesbeekNl.Models.Database
 {
     public partial class BryankroesbeekNlContext : DbContext
     {
@@ -15,9 +15,9 @@ namespace BryankroesbeekNl.Models
             {
                 entity.Property(e => e.Id).HasColumnType("int(11)");
 
-                entity.Property(e => e.Description).HasColumnType("text");
-
                 entity.Property(e => e.GithubId).HasColumnType("int(11)");
+
+                entity.Property(e => e.Description).HasColumnType("text");
 
                 entity.Property(e => e.Link)
                     .IsRequired()
@@ -27,13 +27,9 @@ namespace BryankroesbeekNl.Models
                     .IsRequired()
                     .HasMaxLength(100);
 
-                entity.Property(e => e.OwnerName)
-                    .IsRequired()
-                    .HasMaxLength(255);
-
                 entity.Property(e => e.Position).HasColumnType("int(11)");
 
-                entity.Property(e => e.Visible).HasColumnType("bool");
+                entity.Property(e => e.Visible).HasColumnType("bit(1)");
             });
         }
     }

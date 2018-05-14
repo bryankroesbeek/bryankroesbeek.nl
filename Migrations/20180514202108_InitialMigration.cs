@@ -16,12 +16,11 @@ namespace BryankroesbeekNl.Migrations
                     Id = table.Column<int>(type: "int(11)", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    GithubId = table.Column<int>(type: "int(11)", nullable: false),
+                    GithubId = table.Column<long>(type: "int(11)", nullable: false),
                     Link = table.Column<string>(maxLength: 255, nullable: false),
                     Name = table.Column<string>(maxLength: 100, nullable: false),
-                    OwnerName = table.Column<string>(maxLength: 255, nullable: false),
                     Position = table.Column<int>(type: "int(11)", nullable: false),
-                    Visible = table.Column<bool>(type: "bool", nullable: false)
+                    Visible = table.Column<bool>(type: "bit(1)", nullable: false)
                 },
                 constraints: table =>
                 {

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using BryankroesbeekNl.Models;
+using BryankroesbeekNl.Models.Database;
 
 namespace BryankroesbeekNl
 {
