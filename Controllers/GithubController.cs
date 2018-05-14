@@ -7,12 +7,14 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
 using BryankroesbeekNl.Models;
+using BryankroesbeekNl.Models.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace BryankroesbeekNl.Controllers
 {
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class GithubController : Controller
     {
         private BryankroesbeekNlContext Context { get; }
@@ -27,7 +29,7 @@ namespace BryankroesbeekNl.Controllers
         public IActionResult GetGithubRepos()
         {
             var key = this.configuration.GetSection("ApiKeys").GetSection("Github").Value;
-            var url = "https://api.github.com/user/repos";
+            var url = "https://api.github.com/user/repos?type=owner";
 
             using (HttpClient client = new HttpClient())
             {
@@ -37,14 +39,26 @@ namespace BryankroesbeekNl.Controllers
                 var res = client.GetAsync(url).Result;
                 var content = res.Content.ReadAsStringAsync().Result;
 
-                return Ok(content);
+                return Ok(JsonConvert.DeserializeObject<Repo[]>(content));
             }
+        }
+
+        [HttpGet("repos")]
+        public IActionResult GetRepos()
+        {
+            return Ok(this.Context.Repository);
         }
 
         [HttpPost("repos")]
         public IActionResult PostGithubRepos([FromBody] Repository[] repos)
         {
-            return Ok();
+            return StatusCode(418);
+        }
+
+        [HttpPut("repos/{repoId}")]
+        public IActionResult UpdateGithubRepos(int repoId, [FromBody] Repository repos)
+        {
+            return StatusCode(418);
         }
     }
 }
