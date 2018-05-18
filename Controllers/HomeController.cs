@@ -7,12 +7,21 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BryankroesbeekNl.Controllers
 {
-    [Route("{*url}")]
+    [Route("/")]
     public class HomeController : Controller
     {
-        [HttpGet]
+        [HttpGet("/")]
+        [HttpGet("/projects")]
+        [HttpGet("/experience")]
         public IActionResult Index()
         {
+            return View();
+        }
+
+        [HttpGet("{*url}")]
+        public IActionResult NotFound()
+        {
+            Response.StatusCode = 404;
             return View();
         }
     }
