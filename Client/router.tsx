@@ -24,6 +24,7 @@ export class MainRouter extends React.Component<{}, MainState>{
         this.state = {
             links: [
                 { title: "Home", url: "/" },
+                { title: "Werkervaring", url: "/experience" },
                 { title: "Projecten", url: "/projects" }
             ]
         }
@@ -34,7 +35,7 @@ export class MainRouter extends React.Component<{}, MainState>{
             <BrowserRouter>
                 <div className="page">
                     <Switch>
-                        <Route exact path="/admin/login" component={Login} />
+                        {/* <Route exact path="/admin/login" component={Login} />
                         <Route path="/admin">
                             <div className="admin_content">
                                 <Sidebar />
@@ -42,7 +43,7 @@ export class MainRouter extends React.Component<{}, MainState>{
                                     <Route path="/admin/repos" component={Repoview} />
                                 </Switch>
                             </div>
-                        </Route>
+                        </Route> */}
 
                         <Route><>
                             <Header links={this.state.links} />
