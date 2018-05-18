@@ -19,20 +19,22 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState>{
         }
     }
 
-    componentDidMount() {
+    async componentDidMount() {
         if (this.state.repos !== "loading") return
 
-        Api.getRepositories()
-            .then(r => {
-                console.log(r)
-                return r
-            })
-            .then(result => this.setState({ repos: result }))
+        this.setState({ repos: await Api.getRepositories() })
     }
 
     render() {
         if (this.state.repos === "loading") return <div>Loading projects</div>
-        return (
+        return (<div>
+            <div>
+                <h1>Projecten</h1>
+                <p>
+                    Hieronder zijn de projecten te vinden die ik heb gemaakt.
+                </p>
+            </div>
+
             <div className="projects__view">
                 {this.state.repos.map(r =>
                     <div key={r.id} className="project__block">
@@ -43,6 +45,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState>{
                         </div>
                     </div>)}
             </div>
+        </div>
         )
 
     }
