@@ -24,9 +24,7 @@ export class MainRouter extends React.Component<{}, MainState>{
         this.state = {
             links: [
                 { title: "Home", url: "/" },
-                { title: "Projecten", url: "/projects" },
-                { title: "SomeLink", url: "/somelink" },
-                { title: "Yes", url: "/yes" }
+                { title: "Projecten", url: "/projects" }
             ]
         }
     }
