@@ -46,7 +46,7 @@ namespace BryankroesbeekNl.Controllers
         [HttpGet("repos")]
         public IActionResult GetRepos()
         {
-            return Ok(this.Context.Repository);
+            return Ok(this.Context.Repository.Where(repo => repo.Visible));
         }
 
         [HttpPost("repos")]
