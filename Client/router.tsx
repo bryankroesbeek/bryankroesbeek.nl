@@ -46,7 +46,7 @@ export class MainRouter extends React.Component<{}, MainState>{
                         </Route> */}
 
                         <Route><>
-                            <Header links={this.state.links} />
+                            <Route path={"*"} component={({ match }: any) => <Header currentLink={match.url} links={this.state.links} />} />
                             <div className="content">
                                 <Switch>
                                     <Route exact path="/" component={() => <Home />} />
