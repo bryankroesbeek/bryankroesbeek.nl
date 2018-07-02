@@ -12,6 +12,7 @@ import { Login } from './Components/Admin/Login/Login'
 import { Repoview } from './Components/Admin/Repoview/Repoview'
 
 import * as Types from './api/types'
+import { About } from './Components/About/About';
 
 type MainState = {
     links: Types.NavItem[]
@@ -24,6 +25,7 @@ export class MainRouter extends React.Component<{}, MainState>{
         this.state = {
             links: [
                 { title: "Home", url: "/" },
+                { title: "Over Mij", url: "/about" },
                 { title: "Werkervaring", url: "/experience" },
                 { title: "Projecten", url: "/projects" }
             ]
@@ -50,6 +52,7 @@ export class MainRouter extends React.Component<{}, MainState>{
                             <div className="content">
                                 <Switch>
                                     <Route exact path="/" component={() => <Home />} />
+                                    <Route path="/about" component={() => <About />} />
                                     <Route path="/projects" component={() => <Projects />} />
 
                                     <Route component={() => <div>Not Found</div>} />
