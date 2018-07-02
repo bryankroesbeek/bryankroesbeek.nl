@@ -1,10 +1,11 @@
 .footer{
     display: block;
     background: #464646;
+    margin-bottom: 0;
 }
 
 .footer__content{
-    height: 200px;
+    height: $footer_height;
     display: flex;
     color: #ffffff;
 }

@@ -8,10 +8,19 @@
     border: 0;
 }
 
+body, html {
+    height: 100%;
+}
+
 body {
     background: #ebebeb url('/images/noise3.png');
     background-repeat: repeat;
     overflow-x: hidden!important;
+}
+
+#react-app{
+    display: flex;
+    height: 100%;
 }
 
 @media (min-width: 769px) {
@@ -23,10 +32,11 @@ body {
 
     .page {
         width: 100%;
+        min-height: 100%;
     }
     .content {
-        display: block;
         max-width: 1100px;
+        min-height: calc(100% - #{$header_height} - #{$footer_height} - 1px);
         margin: 0 auto;
     }
 }
