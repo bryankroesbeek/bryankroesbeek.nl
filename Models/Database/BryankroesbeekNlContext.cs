@@ -7,15 +7,13 @@ namespace BryankroesbeekNl.Models.Database
     public partial class BryankroesbeekNlContext : DbContext
     {
         public BryankroesbeekNlContext(DbContextOptions<BryankroesbeekNlContext> options) : base(options) { }
-        public virtual DbSet<Repository> Repository { get; set; }
+        public virtual DbSet<Project> Project { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Repository>(entity =>
+            modelBuilder.Entity<Project>(entity =>
             {
                 entity.Property(e => e.Id).HasColumnType("int(11)");
-
-                entity.Property(e => e.GithubId).HasColumnType("int(11)");
 
                 entity.Property(e => e.Description).HasColumnType("text");
 

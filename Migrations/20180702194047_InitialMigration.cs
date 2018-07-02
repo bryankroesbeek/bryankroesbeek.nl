@@ -10,13 +10,12 @@ namespace BryankroesbeekNl.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Repository",
+                name: "Project",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int(11)", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    GithubId = table.Column<long>(type: "int(11)", nullable: false),
                     Link = table.Column<string>(maxLength: 255, nullable: false),
                     Name = table.Column<string>(maxLength: 100, nullable: false),
                     Position = table.Column<int>(type: "int(11)", nullable: false),
@@ -24,14 +23,14 @@ namespace BryankroesbeekNl.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Repository", x => x.Id);
+                    table.PrimaryKey("PK_Project", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Repository");
+                name: "Project");
         }
     }
 }

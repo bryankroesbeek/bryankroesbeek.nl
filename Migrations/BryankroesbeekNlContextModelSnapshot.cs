@@ -20,7 +20,7 @@ namespace BryankroesbeekNl.Migrations
                 .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
 
-            modelBuilder.Entity("BryankroesbeekNl.Models.Database.Repository", b =>
+            modelBuilder.Entity("BryankroesbeekNl.Models.Database.Project", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -28,9 +28,6 @@ namespace BryankroesbeekNl.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
-
-                    b.Property<long>("GithubId")
-                        .HasColumnType("int(11)");
 
                     b.Property<string>("Link")
                         .IsRequired()
@@ -48,7 +45,7 @@ namespace BryankroesbeekNl.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Repository");
+                    b.ToTable("Project");
                 });
 #pragma warning restore 612, 618
         }

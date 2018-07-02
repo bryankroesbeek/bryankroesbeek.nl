@@ -46,17 +46,17 @@ namespace BryankroesbeekNl.Controllers
         [HttpGet("repos")]
         public IActionResult GetRepos()
         {
-            return Ok(this.Context.Repository.Where(repo => repo.Visible));
+            return Ok(this.Context.Project.Where(repo => repo.Visible));
         }
 
         [HttpPost("repos")]
-        public IActionResult PostGithubRepos([FromBody] Repository[] repos)
+        public IActionResult PostGithubRepos([FromBody] Project[] repos)
         {
             return StatusCode(418);
         }
 
         [HttpPut("repos/{repoId}")]
-        public IActionResult UpdateGithubRepos(int repoId, [FromBody] Repository repos)
+        public IActionResult UpdateGithubRepos(int repoId, [FromBody] Project repos)
         {
             return StatusCode(418);
         }
