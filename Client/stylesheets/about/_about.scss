@@ -1,0 +1,22 @@
+.content-me {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    h2 {
+        display: inline-block;
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: 30px;
+        width: 100%;
+        margin: 10px 0;
+    }
+    p {
+        display: inline-block;
+        font-family: 'Open Sans';
+        width: 100%;
+        margin: 5px 0;
+    }
+    .cliche-text {
+        font-size: 10px;
+    }
+}
