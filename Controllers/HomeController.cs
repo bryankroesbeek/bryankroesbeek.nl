@@ -19,7 +19,7 @@ namespace BryankroesbeekNl.Controllers
         }
 
         [HttpGet("{*url}")]
-        public IActionResult NotFound()
+        public IActionResult PageNotFound()
         {
             Response.StatusCode = 404;
             return View();
