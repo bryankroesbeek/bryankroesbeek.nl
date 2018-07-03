@@ -49,14 +49,16 @@ export class MainRouter extends React.Component<{}, MainState>{
 
                         <Route><>
                             <Route path={"*"} component={({ match }: any) => <Header currentLink={match.url} links={this.state.links} />} />
-                            <div className="content">
-                                <Switch>
-                                    <Route exact path="/" component={() => <Home />} />
-                                    <Route path="/about" component={() => <About />} />
-                                    <Route path="/projects" component={() => <Projects />} />
+                            <div className="page-content">
+                                <div className="content" >
+                                    <Switch>
+                                        <Route exact path="/" component={() => <Home />} />
+                                        <Route path="/about" component={() => <About />} />
+                                        <Route path="/projects" component={() => <Projects />} />
 
-                                    <Route component={() => <div>Not Found</div>} />
-                                </Switch>
+                                        <Route component={() => <div>Not Found</div>} />
+                                    </Switch>
+                                </div>
                             </div>
                             <Footer />
                         </></Route>

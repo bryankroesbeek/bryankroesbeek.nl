@@ -27,7 +27,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState>{
 
     render() {
         if (this.state.repos === "loading") return <div>Loading projects</div>
-        return (<div>
+        return (<div className="projects-content">
             <div>
                 <h1>Projecten</h1>
                 <p>

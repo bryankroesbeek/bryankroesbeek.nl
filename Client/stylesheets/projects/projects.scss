@@ -1,15 +1,20 @@
-.projects__view{
-    display: block;
-    margin: 25px;
-}
-
-.project__block{
-    display: inline-block;
-    margin: 10px 0;
-    border: 1px solid #88ff00;
-    width: 100%;
-    background: #00560099;
-}
-.project__block-inner{
-    margin: 10px;
+.projects-content{
+    width: 90%;
+    margin: 0 auto;
+    
+    .projects__view{
+        display: block;
+        margin: 25px;
+    }
+    
+    .project__block{
+        display: inline-block;
+        margin: 10px 0;
+        border: 1px solid #88ff00;
+        width: 100%;
+        background: #00560099;
+    }
+    .project__block-inner{
+        margin: 10px;
+    }
 }
