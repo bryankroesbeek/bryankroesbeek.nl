@@ -11,6 +11,7 @@ namespace BryankroesbeekNl.Controllers
     public class HomeController : Controller
     {
         [HttpGet("/")]
+        [HttpGet("/about")]
         [HttpGet("/projects")]
         [HttpGet("/experience")]
         public IActionResult Index()
