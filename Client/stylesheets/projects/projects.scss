@@ -10,11 +10,47 @@
     .project__block{
         display: inline-block;
         margin: 10px 0;
-        border: 1px solid #88ff00;
+        border: 2px solid #a9a9a9;
         width: 100%;
-        background: #00560099;
+        background: #d2d2d2;
+        border-radius: 4px;
     }
     .project__block-inner{
         margin: 10px;
+        font-family: "Open Sans";
+
+        .project-title {
+            font-family: "Roboto Condensed";
+            font-size: 24pt;
+        }
+
+        p {
+            font-size: 11pt;
+            margin: 10px 0;
+        }
+    }
+
+    .project-link-block{
+        display: block;
+        height: 32px;
+        width: 32px;
+        margin: 5px;
+        border-radius: 100%;
+
+        .gitlab{
+            display: inline-block;
+            background: url('/images/gitlab.png') no-repeat;
+            background-size: contain;
+            height: 100%;
+            width: 100%;
+        }
+
+        .github{
+            display: inline-block;
+            background: url('/images/github.png') no-repeat;
+            background-size: contain;
+            height: 100%;
+            width: 100%;
+        }
     }
 }

@@ -8,6 +8,14 @@
     border: 0;
 }
 
+p{
+    font-family: 'Open Sans'
+}
+
+h1, h2{
+    font-family: 'Roboto'
+}
+
 body, html {
     height: 100%;
 }
@@ -40,7 +48,6 @@ body {
     .content {
         max-width: 1100px;
         margin: 0 auto;
-        flex-grow: 1;
     }
 
     .page-content{
