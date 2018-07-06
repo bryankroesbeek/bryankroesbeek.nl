@@ -3,6 +3,7 @@ import * as ReactDom from 'react-dom'
 import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 import { Repository } from '../../api/types'
 import * as Api from '../../api/api'
+import { ProjectItem } from './ProjectItem';
 
 type ProjectsProps = {}
 
@@ -36,14 +37,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState>{
             </div>
 
             <div className="projects__view">
-                {this.state.repos.map(r =>
-                    <div key={r.id} className="project__block">
-                        <div className="project__block-inner">
-                            <h2 className="project__block-title">{r.name}</h2>
-                            <p className="project__block-description">{r.description}</p>
-                            <a href={r.link} className="project__block-link">Link to repository</a>
-                        </div>
-                    </div>)}
+                {this.state.repos.map(r => <ProjectItem key={r.id} item={r} />)}
             </div>
         </div>
         )

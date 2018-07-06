@@ -1,0 +1,30 @@
+import * as React from 'react'
+import { Repository } from '../../api/types';
+
+type ItemProps = {
+    item: Repository
+}
+
+export class ProjectItem extends React.Component<ItemProps, {}> {
+    render() {
+        return <div className="project__block">
+            <div className="project__block-inner">
+                <h2 className="project-title">{this.props.item.name}</h2>
+                {this.props.item.description ?
+                    this.props.item.description.split("\n").map((text, key) => <p key={key} className="project__block-description">
+                        {text}
+                    </p>) : null}
+                {/* <p className="project__block-description">{this.props.item.description}</p> */}
+                {this.props.item.link ? <div className="project-link-block">
+                    <div className={`link-icon${this.linkCssProperty(this.props.item.link)}`} />
+                </div> : null}
+            </div>
+        </div>
+    }
+
+    linkCssProperty(link: string): string {
+        if (link.includes("github")) return " github"
+        if (link.includes("gitlab")) return " gitlab"
+        return ""
+    }
+}
