@@ -1,6 +1,14 @@
 .projects-content{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
+
+    .projects-header{
+        margin: 10px 15px;
+
+        p{
+            margin: 5px 0;
+        }
+    }
     
     .projects__view{
         display: block;
@@ -10,7 +18,7 @@
     .project__block{
         display: inline-block;
         margin: 10px 0;
-        border: 2px solid #a9a9a9;
+        border: 2px solid #86a986;
         width: 100%;
         background: #d2d2d2;
         border-radius: 4px;
