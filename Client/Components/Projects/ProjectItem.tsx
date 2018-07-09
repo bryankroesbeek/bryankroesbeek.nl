@@ -15,9 +15,9 @@ export class ProjectItem extends React.Component<ItemProps, {}> {
                         {text}
                     </p>) : null}
                 {/* <p className="project__block-description">{this.props.item.description}</p> */}
-                {this.props.item.link ? <div className="project-link-block">
+                {this.props.item.link ? <a href={this.props.item.link} title="Ga naar de repo" className="project-link-block">
                     <div className={`link-icon${this.linkCssProperty(this.props.item.link)}`} />
-                </div> : null}
+                </a> : null}
             </div>
         </div>
     }
