@@ -13,6 +13,7 @@ import { Repoview } from './Components/Admin/Repoview/Repoview'
 
 import * as Types from './api/types'
 import { About } from './Components/About/About';
+import { NotFound } from './Components/Various/NotFound';
 
 type MainState = {
     links: Types.NavItem[]
@@ -25,8 +26,6 @@ export class MainRouter extends React.Component<{}, MainState>{
         this.state = {
             links: [
                 { title: "Home", url: "/" },
-                { title: "Over Mij", url: "/about" },
-                { title: "Werkervaring", url: "/experience" },
                 { title: "Projecten", url: "/projects" }
             ]
         }
@@ -53,18 +52,17 @@ export class MainRouter extends React.Component<{}, MainState>{
                                 <div className="content" >
                                     <Switch>
                                         <Route exact path="/" component={() => <Home />} />
-                                        <Route path="/about" component={() => <About />} />
                                         <Route path="/projects" component={() => <Projects />} />
 
-                                        <Route component={() => <div>Not Found</div>} />
+                                        <Route component={() => <NotFound />} />
                                     </Switch>
                                 </div>
                             </div>
                             <Footer socialLinks={[
-                                {title: "Twitter", link: "https://www.twitter.com/bryankroesbeek"}, 
-                                {title: "LinkedIn", link: "https://www.linkedin.com/in/bryan-kroesbeek-089944121/"},
-                                {title: "Github", link: "https://www.github.com/bryankroesbeek"},
-                                {title: "Gitlab", link: "https://www.gitlab.com/limecta"}]} />
+                                { title: "Twitter", link: "https://www.twitter.com/bryankroesbeek" },
+                                { title: "LinkedIn", link: "https://www.linkedin.com/in/bryan-kroesbeek-089944121/" },
+                                { title: "Github", link: "https://www.github.com/bryankroesbeek" },
+                                { title: "Gitlab", link: "https://www.gitlab.com/limecta" }]} />
                         </></Route>
                     </Switch>
                 </div>
