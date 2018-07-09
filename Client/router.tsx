@@ -60,7 +60,11 @@ export class MainRouter extends React.Component<{}, MainState>{
                                     </Switch>
                                 </div>
                             </div>
-                            <Footer />
+                            <Footer socialLinks={[
+                                {title: "Twitter", link: "https://www.twitter.com/bryankroesbeek"}, 
+                                {title: "LinkedIn", link: "https://www.linkedin.com/in/bryan-kroesbeek-089944121/"},
+                                {title: "Github", link: "https://www.github.com/bryankroesbeek"},
+                                {title: "Gitlab", link: "https://www.gitlab.com/limecta"}]} />
                         </></Route>
                     </Switch>
                 </div>

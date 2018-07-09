@@ -1,15 +1,34 @@
-.footer{
+.footer {
     display: block;
     background: #464646;
-    margin-bottom: 0;
+    border-top: 4px solid #1cdb56;
+    color: #1cdb56;
+    font-weight: 600;
 }
 
-.footer__content{
+.footer__content {
     height: $footer_height;
     display: flex;
-    color: #ffffff;
+    margin: 0 auto;
+    justify-content: space-between;
+    font-size: 11pt;
 }
 
-.footer-text{
-    margin: auto;
+.footer-copyright {
+    margin: auto 0;
+}
+
+.footer-links {
+    display: inline-flex;
+    margin: auto 0;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #1cdb56;
+    font-weight: 500;
+    margin: 0 10px;
+    &:hover {
+        color: lighten($color: #1cdb56, $amount: 50%);
+    }
 }
