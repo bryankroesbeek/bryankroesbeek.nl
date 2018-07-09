@@ -29,10 +29,10 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState>{
     render() {
         if (this.state.repos === "loading") return <div>Loading projects</div>
         return (<div className="projects-content">
-            <div>
+            <div className="projects-header">
                 <h1>Projecten</h1>
                 <p>
-                    Hieronder zijn de projecten te vinden die ik heb gemaakt.
+                    Hieronder zijn mijn projecten te vinden.
                 </p>
             </div>
 
