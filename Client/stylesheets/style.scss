@@ -8,8 +8,14 @@
     border: 0;
 }
 
-p, a{
+p{
     font-family: 'Open Sans'
+}
+
+a {
+    font-family: 'Open Sans';
+    text-decoration: none;
+    color: darken(#1cdb56, 15%);
 }
 
 h1, h2{
@@ -38,10 +44,10 @@ body {
     @import 'various/banner';
     @import 'projects/projects';
     @import 'about/about';
+    @import 'various/notfound';
 
     .page {
         width: 100%;
-        min-height: 100%;
         display: inline-flex;
         flex-direction: column;
     }
