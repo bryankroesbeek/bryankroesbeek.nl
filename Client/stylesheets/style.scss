@@ -63,6 +63,13 @@ body {
 }
 
 @media(max-width: 768px) {
+    .page {
+        width: 100%;
+    }
+    .page-content{
+        flex-grow: 1;
+        width: 100%;
+    }
     body {
         width: 100%;
     }

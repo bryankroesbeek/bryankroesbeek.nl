@@ -1,6 +1,6 @@
 .header {
     background: #1cdb56;
-    border-bottom: 1px solid darken($color: #66dd26, $amount: 15);
+    border-bottom: 1px solid darken($color: #1cdb56, $amount: 15);
 }
 
 .header__content {
@@ -68,5 +68,9 @@
 }
 
 .header-icon__responsive {
+    display: none;
+}
+
+.header-nav-responsive{
     display: none;
 }

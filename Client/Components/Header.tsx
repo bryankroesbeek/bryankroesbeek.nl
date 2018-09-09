@@ -22,28 +22,33 @@ export class Header extends React.Component<Props, State> {
         }
     }
 
+    renderLinks() {
+        return this.props.links.map((link, key) =>
+            <Link
+                to={link.url} key={`nav_${key}`}
+                className={`nav__link ${this.props.currentLink === link.url ? "link-active" : ""}`}
+                onClick={() => this.setState({ opened_mobile: false })} >
+                <span className="nav__item">
+                    <span className="item__label">
+                        {link.title}
+                    </span>
+                </span>
+            </Link>
+        )
+    }
+
     render() {
-        console.log(this.props.currentLink)
-        console.log(this.props.links)
         return (
             <header className="header">
                 <div className="content">
                     <div className="header__content">
                         <Link className="header__name" to="/">Bryan Kroesbeek</Link>
-                        <div className={`header__nav${this.state.opened_mobile ? " responsive" : ""}`}>
-                            {this.props.links.map((link, key) =>
-                                <Link to={link.url} key={`nav_${key}`} className={`nav__link${this.props.currentLink === link.url ? " link-active" : ""}`} >
-                                    <span className="nav__item">
-                                        <span className="item__label">
-                                            {link.title}
-                                        </span>
-                                    </span>
-                                </Link>
-                            )}
-                            <Link to="#" className="header-icon__responsive" onClick={() => {
-                                this.setState({ ...this.state, opened_mobile: !this.state.opened_mobile })
-                            }} >&#9776;</Link>
+                        <div className={`header__nav ${this.state.opened_mobile ? "mobile-visible" : ""}`}>
+                            {this.renderLinks()}
                         </div>
+                        <Link to="#" className="header-icon__responsive" onClick={() => {
+                            this.setState({ ...this.state, opened_mobile: !this.state.opened_mobile })
+                        }} >&#9776;</Link>
                     </div>
                 </div>
             </header>
