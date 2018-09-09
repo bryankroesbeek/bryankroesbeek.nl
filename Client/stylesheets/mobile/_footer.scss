@@ -1,0 +1,69 @@
+.footer {
+    display: block;
+    background: #464646;
+    border-top: 4px solid #1cdb56;
+    color: #1cdb56;
+    font-weight: 600;
+}
+
+.footer__content {
+    height: auto;
+    display: block;
+    margin: 0 10px;
+    justify-content: space-between;
+    font-size: 11pt;
+}
+
+.footer-copyright {
+    margin: auto 0;
+}
+
+.footer-links {
+    display: inline-flex;
+    margin: auto 0;
+}
+
+.footer-link-text {
+    display: none;
+}
+
+.footer-link {
+    text-decoration: none;
+    color: #1cdb56;
+    font-weight: 500;
+    margin: 0 10px;
+
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+
+    // background: #00ff00;
+
+    &:hover {
+        color: lighten($color: #1cdb56, $amount: 50%);
+    }
+    .github {
+        background: url('/images/github-white.png') no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+    }
+    .gitlab {
+        background: url('/images/gitlab-white.svg') no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+    }
+    .twitter {
+        background: url('/images/twitter-white.png') no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+    }
+    .linkedin {
+        background: url('/images/linkedin-white.png') no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 100%;
+    }
+}

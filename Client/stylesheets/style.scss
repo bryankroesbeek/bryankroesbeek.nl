@@ -65,6 +65,8 @@ body {
 @media(max-width: 768px) {
     .page {
         width: 100%;
+        display: inline-flex;
+        flex-direction: column;
     }
     .page-content{
         flex-grow: 1;
@@ -74,4 +76,7 @@ body {
         width: 100%;
     }
     @import 'mobile/header';
+    @import 'mobile/footer';
+    @import 'mobile/home';
+    @import 'mobile/about';
 }
