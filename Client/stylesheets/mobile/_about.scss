@@ -1,0 +1,21 @@
+.content-me {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0 15px;
+    h2 {
+        display: inline-block;
+        font-family: 'Roboto';
+        font-weight: 400;
+        font-size: 20pt;
+        width: 100%;
+        margin: 10px 0;
+    }
+    p {
+        display: inline-block;
+        font-family: 'Open Sans';
+        font-size: 12pt;
+        width: 100%;
+        margin: 5px 0;
+    }
+}
