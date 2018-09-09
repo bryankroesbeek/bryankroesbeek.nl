@@ -1,0 +1,14 @@
+.home-introduction {
+    width: 100%;
+    display: block;
+}
+
+.introduction-image {
+    width: calc(100% - 30px);
+    height: calc(100% - 30px);
+    padding: 15px;
+}
+
+.introduction-section {
+    display: none;
+}
