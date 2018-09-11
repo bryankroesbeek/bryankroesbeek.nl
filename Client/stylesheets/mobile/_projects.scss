@@ -1,0 +1,64 @@
+.projects-content{
+    width: 100%;
+    margin: 0 auto;
+
+    .projects-header{
+        margin: 10px 15px;
+
+        p{
+            margin: 5px 0;
+        }
+    }
+    
+    .projects__view{
+        display: block;
+        margin: 10px 15px;
+    }
+    
+    .project__block{
+        display: inline-block;
+        margin: 10px 0;
+        border: 2px solid #86a986;
+        width: 100%;
+        background: #d2d2d2;
+        border-radius: 4px;
+    }
+    .project__block-inner{
+        margin: 10px;
+        font-family: "Open Sans";
+
+        .project-title {
+            font-family: "Roboto Condensed";
+            font-size: 22pt;
+        }
+
+        p {
+            font-size: 11pt;
+            margin: 10px 0;
+        }
+    }
+
+    .project-link-block{
+        display: block;
+        height: 32px;
+        width: 32px;
+        margin: 5px;
+        border-radius: 100%;
+
+        .gitlab{
+            display: inline-block;
+            background: url('/images/gitlab.png') no-repeat;
+            background-size: contain;
+            height: 100%;
+            width: 100%;
+        }
+
+        .github{
+            display: inline-block;
+            background: url('/images/github.png') no-repeat;
+            background-size: contain;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
