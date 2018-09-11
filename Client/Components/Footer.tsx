@@ -16,7 +16,7 @@ export let Footer = (
                         <p>{'\u00A9'} {Moment().year()} Bryan Kroesbeek</p>
                     </span>
                     <div className="footer-links">
-                        <p>Volg mij |</p>
+                        <p className="follow-me">Volg mij</p>
                         {props.socialLinks.map((social, i) => <a key={`link_${i}`} className="footer-link" href={social.link}>
                             <span className="footer-link-text">{social.title}</span>
                             <div className={social.title.toLowerCase()} />
