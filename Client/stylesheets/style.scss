@@ -15,7 +15,10 @@ p{
 a {
     font-family: 'Open Sans';
     text-decoration: none;
-    color: darken(#1cdb56, 15%);
+    color: darken(#1cdb56, 10%);
+    &:hover {
+        color: lighten(#1cdb56, 20%);
+    }
 }
 
 h1, h2{

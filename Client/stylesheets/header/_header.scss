@@ -44,6 +44,13 @@
     .nav__link-active {
         border-bottom: 5px solid #464646;
     }
+    &:hover{
+        color: #f8f8f8;
+    }
+
+    &:active{
+        color: #56f856;
+    }
 }
 
 .link-active {
@@ -53,14 +60,6 @@
 .nav__item {
     display: inline-flex;
     height: 100%;
-
-    &:hover{
-        color: #f8f8f8;
-    }
-
-    &:active{
-        color: #56f856;
-    }
 }
 
 .item__label {
