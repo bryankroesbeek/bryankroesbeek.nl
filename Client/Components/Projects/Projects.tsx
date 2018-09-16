@@ -19,6 +19,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState>{
     }
 
     async componentDidMount() {
+        document.title = "Projecten"        
         if (this.state.repos !== "loading") return
 
         this.setState({ repos: await Api.getProjects() })

@@ -5,7 +5,7 @@ import { About } from '../About/About'
 export class Home extends React.Component<{}, {}>{
 
     componentDidMount() {
-        document.title = "Homepagina"
+        document.title = "Home"
     }
 
     render() {
