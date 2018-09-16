@@ -30,8 +30,8 @@ export function deleteResources(url: string, id: number) {
     })
 }
 
-export async function getRepositories(): Promise<Repository[]> {
-    let res = await fetch('/api/github/repos')
+export async function getProjects(): Promise<Repository[]> {
+    let res = await fetch('/api/project/repos')
     let json = await res.json()
 
     return json

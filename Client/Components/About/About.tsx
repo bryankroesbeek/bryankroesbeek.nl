@@ -1,16 +1,11 @@
 import * as React from 'react'
-import * as ReactDom from 'react-dom'
-import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import * as Moment from 'moment'
-
-import { Banner } from '../Various/Banner'
 
 export class About extends React.Component<{}, {}>{
     render() {
         return (<>
-            {/* <Banner type="Banner" title="Wie ben ik en wat doe ik?" /> */}
-
             <div className="content-me">
                 <h2>Ik ben Bryan Kroesbeek</h2>
                 <p> Ik ben een software ontwikkelaar in opleiding van {this.age()} jaar oud.

@@ -1,6 +1,5 @@
 import * as React from 'react'
-import * as ReactDom from 'react-dom'
-import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { HamburgerMenuIcon } from './Various/HamburgerMenuIcon'
 
 import * as Types from '../api/types'

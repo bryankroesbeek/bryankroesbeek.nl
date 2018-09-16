@@ -13,7 +13,6 @@ namespace BryankroesbeekNl.Controllers
         [HttpGet("/")]
         [HttpGet("/about")]
         [HttpGet("/projects")]
-        [HttpGet("/experience")]
         public IActionResult Index()
         {
             return View();

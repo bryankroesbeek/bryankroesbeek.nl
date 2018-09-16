@@ -1,5 +1,4 @@
 import * as React from 'react'
-import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 
 export let Banner = (
     props: {

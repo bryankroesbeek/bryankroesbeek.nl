@@ -1,6 +1,4 @@
 import * as React from 'react'
-import * as ReactDom from 'react-dom'
-import { BrowserRouter, Route, Link, Redirect } from 'react-router-dom'
 import { Repository } from '../../api/types'
 import * as Api from '../../api/api'
 import { ProjectItem } from './ProjectItem';
@@ -23,7 +21,7 @@ export class Projects extends React.Component<ProjectsProps, ProjectsState>{
     async componentDidMount() {
         if (this.state.repos !== "loading") return
 
-        this.setState({ repos: await Api.getRepositories() })
+        this.setState({ repos: await Api.getProjects() })
     }
 
     render() {

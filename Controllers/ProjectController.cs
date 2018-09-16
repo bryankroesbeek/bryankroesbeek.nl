@@ -15,11 +15,11 @@ using Newtonsoft.Json;
 namespace BryankroesbeekNl.Controllers
 {
     [Route("api/[controller]")]
-    public class GithubController : Controller
+    public class ProjectController : Controller
     {
         private BryankroesbeekNlContext Context { get; }
         private IConfiguration configuration;
-        public GithubController(BryankroesbeekNlContext context, IConfiguration configuration)
+        public ProjectController(BryankroesbeekNlContext context, IConfiguration configuration)
         {
             this.Context = context;
             this.configuration = configuration;
