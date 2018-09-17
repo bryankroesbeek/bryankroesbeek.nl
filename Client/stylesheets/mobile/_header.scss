@@ -18,8 +18,12 @@
     margin: auto 0;
     color: #464646;
 
+    &:hover{
+        color: #464646;
+    }
+
     &:active{
-        color: #56f856;
+        color: darken($color: #1cdb56, $amount: 10);
     }
 }
 
