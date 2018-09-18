@@ -70,6 +70,7 @@ body {
         width: 100%;
         display: inline-flex;
         flex-direction: column;
+        overflow-x: hidden;
     }
     .page-content{
         flex-grow: 1;
