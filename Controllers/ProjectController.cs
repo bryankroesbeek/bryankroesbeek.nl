@@ -25,24 +25,6 @@ namespace BryankroesbeekNl.Controllers
             this.configuration = configuration;
         }
 
-        [HttpGet("details")]
-        public IActionResult GetGithubRepos()
-        {
-            var key = this.configuration.GetSection("ApiKeys").GetSection("Github").Value;
-            var url = "https://api.github.com/user/repos?type=owner";
-
-            using (HttpClient client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("token", key);
-                client.DefaultRequestHeaders.Add("User-Agent", "request");
-
-                var res = client.GetAsync(url).Result;
-                var content = res.Content.ReadAsStringAsync().Result;
-
-                return Ok(JsonConvert.DeserializeObject<Repo[]>(content));
-            }
-        }
-
         [HttpGet("repos")]
         public IActionResult GetRepos()
         {
