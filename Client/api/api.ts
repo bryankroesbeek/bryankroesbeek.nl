@@ -1,4 +1,4 @@
-import { Repository } from "./types";
+import { Project } from "./types";
 
 export function getResources<T>(url: string) {
     return fetch(url)
@@ -30,9 +30,15 @@ export function deleteResources(url: string, id: number) {
     })
 }
 
-export async function getProjects(): Promise<Repository[]> {
+export async function getProjects(): Promise<Project[]> {
     let res = await fetch('/api/project/repos')
     let json = await res.json()
 
     return json
+}
+
+export function getTables(): Promise<string[]> {
+    return fetch("/api/database/tables")
+        .then(res => res.json())
+        .then(json => json as string[])
 }
