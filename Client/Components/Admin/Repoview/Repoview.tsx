@@ -1,7 +1,15 @@
 import * as React from 'react'
 import * as ReactDom from 'react-dom'
 
-export class Repoview extends React.Component<{}, {}>{
+type TableProps = {
+    table: string
+}
+
+type TableState = {
+
+}
+
+export class TableView extends React.Component<TableProps, TableState>{
 
 
     render(){

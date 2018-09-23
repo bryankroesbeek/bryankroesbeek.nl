@@ -1,14 +1,45 @@
 import * as React from 'react'
-import * as ReactDom from 'react-dom'
-import { BrowserRouter, Route, Link, Redirect, Switch } from 'react-router-dom'
+import * as Api from '../../../api/api'
+import { } from '../../../api/types'
+import { Link } from 'react-router-dom';
 
-export class Sidebar extends React.Component<{}, {}> {
+type SidebarProps = {
 
-    render(){
-        return (
-            <div className="sidebar">
-                Sidebar
+}
+
+type SidebarState = {
+    sideElements: string[] | "loading"
+}
+
+export class Sidebar extends React.Component<SidebarProps, SidebarState> {
+    constructor(props: SidebarProps) {
+        super(props)
+
+        this.state = {
+            sideElements: "loading"
+        }
+    }
+
+    componentDidMount() {
+        if (this.state.sideElements !== "loading") return
+
+        Api.getTables()
+            .then(t => this.setState({ sideElements: t }))
+    }
+
+    render() {
+        if (this.state.sideElements === "loading") return null
+        return (<div className="admin-sidebar">
+            <div className="sidebar-header">
+                <div className="sidebar-header-content">Bryan Kroesbeek</div>
             </div>
-        )
+            <div className="sidebar-items">
+                {
+                    this.state.sideElements.map((tableName, count) => <Link to="" className="sidebar-item-link" key={`item-${count}`}>
+                        <div className="table-name">{tableName}</div>
+                    </Link>)
+                }
+            </div>
+        </div>)
     }
 }

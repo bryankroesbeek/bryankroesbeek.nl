@@ -9,7 +9,7 @@ import { Footer } from './Components/Footer'
 
 import { Sidebar } from './Components/Admin/Sidebar/Sidebar'
 import { Login } from './Components/Admin/Login/Login'
-import { Repoview } from './Components/Admin/Repoview/Repoview'
+import { TableView } from './Components/Admin/Repoview/Repoview'
 
 import * as Types from './api/types'
 import { About } from './Components/About/About';
@@ -36,15 +36,18 @@ export class MainRouter extends React.Component<{}, MainState>{
             <BrowserRouter>
                 <div className="page">
                     <Switch>
-                        {/* <Route exact path="/admin/login" component={Login} />
-                        <Route path="/admin">
-                            <div className="admin_content">
+                        <Route exact path="/admin/login" component={Login} />
+                        <Route path="/admin"><>
+                            <div className="admin-header">
+                                <span className="admin-title">Bryan Kroesbeek</span>
+                            </div>
+                            <div className="admin-content">
                                 <Sidebar />
                                 <Switch>
-                                    <Route path="/admin/repos" component={Repoview} />
+                                    <Route path="/admin/:table" component={({ match }: any) => <TableView table={match.params.table} />} />
                                 </Switch>
                             </div>
-                        </Route> */}
+                        </></Route>
 
                         <Route><>
                             <Route path={"*"} component={({ match }: any) => <Header currentLink={match.url} links={this.state.links} />} />
