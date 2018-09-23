@@ -47,12 +47,15 @@ namespace BryankroesbeekNl.Controllers.Api
             if (type == null)
                 return NotFound();
 
-            var dbType = this.Context.Model.FindEntityType(type).GetProperties().Select(t => new {
+            var columns = this.Context.Model.FindEntityType(type).GetProperties().Select(t => new {
                 Name = t.Relational().ColumnName,
                 Type = t.Relational().ColumnType
             });
 
-            return Ok(dbType);
+            return Ok(new {
+                name = table,
+                columns = columns
+            });
         }
     }
 }
