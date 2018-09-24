@@ -5,12 +5,13 @@ import * as Api from '../../../api/api'
 import { TableColumns } from '../../../api/types'
 
 type TableProps = {
-    data: any,
+    data: any
     columns: TableColumns
 }
 
 type TableState = {
     data: any
+    expand: boolean
 }
 
 export class Table extends React.Component<TableProps, TableState>{
@@ -18,26 +19,34 @@ export class Table extends React.Component<TableProps, TableState>{
         super(props)
 
         this.state = {
-            data: { ...props.data }
+            data: { ...props.data },
+            expand: false
         }
-    }
-
-    componentDidUpdate() {
-        console.log(this.state.data)
     }
 
     render() {
         return <div className="table-item">
-            {
-                this.props.columns.columns.map((c, count) => {
-                    if (lodash.snakeCase(c.name) === "id") return null
-                    return <div key={`column-item-${count}`} className="column-item">
-                        <label className="column-item-name">{c.name}</label>
-                        {this.input(c.type, this.state.data[lodash.snakeCase(c.name)], c.name)}
-                    </div>
-                })
-            }
+            <div className="table-item-contents">{this.renderColumnItem()}</div>
+            <button className="table-expand-icon" onClick={() => this.setState({ expand: !this.state.expand })}>{this.state.expand ? '-' : '+'}</button>
         </div>
+    }
+
+    renderColumnItem() {
+        if (this.state.expand)
+            return this.props.columns.columns.map((c, count) => {
+                if (lodash.snakeCase(c.name) === "id") return null
+                return <div key={`column-item-${count}`} className="column-item">
+                    <label className="column-item-name">{c.name}</label>
+                    {this.input(c.type, this.state.data[lodash.snakeCase(c.name)], c.name)}
+                </div>
+            })
+
+        return this.props.columns.columns.filter(i => lodash.snakeCase(i.name) === "name").map((c, count) =>
+            <div key={`column-item-${count}`} className="column-item">
+                <label className="column-item-name">{c.name}</label>
+                {this.input(c.type, this.state.data[lodash.snakeCase(c.name)], c.name)}
+            </div>
+        )
     }
 
     input(type: string, value: any, name: string): JSX.Element {

@@ -34,7 +34,7 @@ export class Tables extends React.Component<TableProps, TableState>{
 
         this.setState({ columns: columns, data: data })
     }
-
+    
     render() {
         if (this.state.columns === "loading") return null
         if (this.state.data === "loading") return null
@@ -44,8 +44,8 @@ export class Tables extends React.Component<TableProps, TableState>{
                 {
                     this.state.data.map((data, count) => <Table key={`item_${count}`} data={data} columns={this.state.columns === "loading" ? null : this.state.columns} />)
                 }
-
             </div>
+            <button className="tables-create-new">Create new</button>
         </div>
     }
 }
