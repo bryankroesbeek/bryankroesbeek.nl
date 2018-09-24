@@ -1,10 +1,10 @@
 .admin-sidebar{
     display: flex;
     flex-direction: column;
-    width: 16%;
+    flex-shrink: 0;
+    width: 350px;
     height: 100%;
     background: #464646;
-    // border-right: 4px solid #1cdb56;
 }
 
 .sidebar-items {
@@ -26,6 +26,11 @@
     &:active {
         color: #464646;
         background: darken(#1cdb56, 10);
+    }
+    
+    &.active { 
+        color: #464646;
+        background: #1cdb56;
     }
 
     transition: 0.25s;

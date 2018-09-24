@@ -1,0 +1,55 @@
+.admin-table-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.table-data{
+    display: flex;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.table-columns {
+    width: 100%;
+    margin: 20px;
+}
+
+.table-item{
+    margin-bottom: 25px;
+    padding: 5px 15px;
+    background: #1cdb56;
+    border: 2px solid darken(#1cdb56, 10);
+    border-radius: 5px;
+}
+
+.column-item{
+    display: flex;
+    flex-direction: column;
+    margin: 5px 0;
+
+    .large{
+        height: 100px;
+    }
+}
+
+.column-item-name{
+    font-family: 'Roboto Mono';
+    margin-bottom: 5px;
+}
+
+.column-item-value{
+    font-size: 13pt;
+    padding: 10px;
+    margin-bottom: 5px;
+
+    &:focus {
+        outline: 2px solid #1cdb56;
+    }
+}
+
+textarea {
+    resize: vertical;
+    min-height: 30px;
+}

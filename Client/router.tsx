@@ -1,5 +1,4 @@
 import * as React from 'react'
-import * as ReactDom from 'react-dom'
 import { BrowserRouter, Route, Link, Redirect, Switch } from 'react-router-dom'
 
 import { Home } from './Components/Home/Home'
@@ -9,7 +8,7 @@ import { Footer } from './Components/Footer'
 
 import { Sidebar } from './Components/Admin/Sidebar/Sidebar'
 import { Login } from './Components/Admin/Login/Login'
-import { TableView } from './Components/Admin/Repoview/Repoview'
+import { Tables } from './Components/Admin/Tables/Tables'
 
 import * as Types from './api/types'
 import { About } from './Components/About/About';
@@ -38,14 +37,14 @@ export class MainRouter extends React.Component<{}, MainState>{
                     <Switch>
                         <Route exact path="/admin/login" component={Login} />
                         <Route path="/admin"><>
-                            <div className="admin-header">
-                                <span className="admin-title">Bryan Kroesbeek</span>
-                            </div>
                             <div className="admin-content">
                                 <Sidebar />
-                                <Switch>
-                                    <Route path="/admin/:table" component={({ match }: any) => <TableView table={match.params.table} />} />
-                                </Switch>
+                                <div className="admin-table-content">
+                                    <div className="admin-header" />
+                                    <Switch>
+                                        <Route path="/admin/:table" component={({ match }: any) => <Tables table={match.params['table']} />} />
+                                    </Switch>
+                                </div>
                             </div>
                         </></Route>
 

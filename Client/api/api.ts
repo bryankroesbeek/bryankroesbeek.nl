@@ -1,4 +1,4 @@
-import { Project } from "./types";
+import { Project, TableColumns } from "./types";
 
 export function getResources<T>(url: string) {
     return fetch(url)
@@ -41,4 +41,9 @@ export function getTables(): Promise<string[]> {
     return fetch("/api/database/tables")
         .then(res => res.json())
         .then(json => json as string[])
+}
+
+export async function getColumns(table: string): Promise<TableColumns> {
+    let res = await fetch(`/api/database/${table}/columns`)
+    return await res.json()
 }
