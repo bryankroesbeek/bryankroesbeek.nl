@@ -36,26 +36,36 @@ namespace BryankroesbeekNl.Controllers.Api.ModelApi
             return Ok(project);
         }
 
-        [HttpPost]
-        public IActionResult CreateProject([FromBody] Project project)
+        [HttpPost("create")]
+        public IActionResult CreateProject()
         {
+            var project = new Project
+            {
+                Name = "",
+                Link = "",
+                Description = "",
+                Position = this.Context.Project.OrderByDescending(p => p.Position).FirstOrDefault().Position + 1,
+                Visible = false
+            };
+
             this.Context.Project.Add(project);
             this.Context.SaveChanges();
-            return Ok();
+
+            return Ok(project);
         }
 
-        [HttpPut]
-        public IActionResult UpdateProject(int id, [FromBody] Project updatedProject)
+        [HttpPut("update")]
+        public IActionResult UpdateProject([FromBody] Project updatedProject)
         {
-            var project = this.Context.Project.Where(p => p.Id == id).SingleOrDefault();
-            if (project == null) return BadRequest();
+            var exists = this.Context.Project.Any(p => p.Id == updatedProject.Id);
+            if (!exists) return BadRequest();
 
-            project = updatedProject;
+            this.Context.Project.Update(updatedProject);
             this.Context.SaveChanges();
             return Ok();
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProject(int id)
         {
             var project = this.Context.Project.Where(p => p.Id == id).SingleOrDefault();

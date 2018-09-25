@@ -47,3 +47,26 @@ export async function getColumns(table: string): Promise<TableColumns> {
     let res = await fetch(`/api/database/${table}/columns`)
     return await res.json()
 }
+
+export async function createRow(table: string): Promise<any> {
+    return await fetch(`/api/${table}api/create`, {
+        method: "POST"
+    })
+}
+
+export async function updateRow(table: string, data: any): Promise<any> {
+    let headers = new Headers()
+    headers.append('content-type', 'application/json')
+
+    return await fetch(`/api/${table}api/update`, {
+        method: "PUT",
+        headers: headers,
+        body: JSON.stringify(data)
+    })
+}
+
+export async function deleteRow(table: string, id: number): Promise<any> {
+    return await fetch(`/api/${table}api/${id}`, {
+        method: "DELETE"
+    })
+}
