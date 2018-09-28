@@ -25,7 +25,7 @@ namespace BryankroesbeekNl.Controllers.Api.ModelApi
         [HttpGet("all")]
         public IActionResult GetProjects()
         {
-            return Ok(this.Context.Project);
+            return Ok(this.Context.Project.Where(p => p.Visible).OrderBy(p => p.Position));
         }
 
         [HttpGet]

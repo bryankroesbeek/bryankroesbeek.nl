@@ -31,7 +31,7 @@ export function deleteResources(url: string, id: number) {
 }
 
 export async function getProjects(): Promise<Project[]> {
-    let res = await fetch('/api/project/repos')
+    let res = await fetch('/api/projectapi/all')
     let json = await res.json()
 
     return json
