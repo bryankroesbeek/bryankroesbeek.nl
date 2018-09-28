@@ -33,14 +33,39 @@ export class Tables extends React.Component<TableProps, TableState>{
         let columns = await Api.getColumns(this.props.table)
         let data = await Api.getResources<any[]>(`/api/${this.props.table}api/all`)
 
-        this.setState({ columns: columns, data: data })
+        this.setState({ columns: columns, data: data.sort((a, b) => a.position - b.position) })
     }
 
     async deleteItem(id: number) {
         if (this.state.data === "loading") return
+
         let newData = [...this.state.data]
         let filteredData = newData.filter((d: any) => d.id !== id)
         this.setState({ data: filteredData })
+    }
+
+    updateItem(data: any) {
+        if (this.state.data === "loading") return
+
+        let itemIndex = this.state.data.findIndex(d => d.id === data.id)
+        let newData = [...this.state.data]
+
+        newData[itemIndex] = data
+        this.setState({ data: newData })
+    }
+
+    changePosition(newPos: number, oldPos: number) {
+        if (this.state.data === "loading") return
+
+        let oldItemIndex = this.state.data.findIndex(d => d.position === newPos)
+        let currentItemIndex = this.state.data.findIndex(d => d.position === oldPos)
+        if (oldItemIndex < 0 || currentItemIndex < 0) return
+
+        let data = [...this.state.data]
+        data[oldItemIndex] = { ...data[oldItemIndex], position: oldPos }
+        data[currentItemIndex] = { ...data[currentItemIndex], position: newPos }
+
+        this.setState({ data: data.sort((a, b) => a.position - b.position) })
     }
 
     render() {
@@ -50,8 +75,15 @@ export class Tables extends React.Component<TableProps, TableState>{
         return <div className="table-data">
             <div className="table-columns">
                 {
-                    this.state.data.map(data =>
-                        <Table key={data.id} delete={(id: number) => this.deleteItem(id)} data={data} columns={this.state.columns === "loading" ? null : this.state.columns} />
+                    this.state.data.map((data, index) =>
+                        <Table
+                            key={data.id}
+                            changePosition={(newPos: number, oldPos: number) => this.changePosition(newPos, oldPos)}
+                            delete={(id: number) => this.deleteItem(id)}
+                            update={(data: any) => this.updateItem(data)}
+                            data={{ ...data, position: index + 1 }}
+                            columns={this.state.columns === "loading" ? null : this.state.columns}
+                        />
                     )
                 }
             </div>
