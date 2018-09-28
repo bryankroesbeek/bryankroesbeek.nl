@@ -29,6 +29,20 @@ namespace BryankroesbeekNl.Models.Database
 
                 entity.Property(e => e.Visible).HasColumnType("bit(1)");
             });
+
+            modelBuilder.Entity<AuthToken>(entity =>
+            {
+                entity.HasKey(e => e.Id);
+
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int(11)");
+
+                entity.Property(e => e.Token)
+                    .HasMaxLength(255);
+
+                entity.Property(e => e.CreatedAt).HasColumnType("bigint(20)");
+            });
         }
     }
 }
