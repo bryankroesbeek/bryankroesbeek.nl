@@ -9,6 +9,7 @@ export function getResources<T>(url: string) {
 export function postResources<T>(url: string, body: T) {
     let headers = new Headers()
     headers.append('content-type', 'application/json')
+    headers.append('RequestVerificationToken', document.getElementsByName("__RequestVerificationToken")[0].getAttribute("value"))
     return fetch(url, {
         method: "POST",
         headers: headers,
@@ -16,57 +17,48 @@ export function postResources<T>(url: string, body: T) {
     })
 }
 
-export function putResources<T>(id: number, body: T) {
-
-}
-
-export function deleteResources(url: string, id: number) {
+export function putResources<T>(url: string, body: T) {
     let headers = new Headers()
     headers.append('content-type', 'application/json')
+    headers.append('RequestVerificationToken', document.getElementsByName("__RequestVerificationToken")[0].getAttribute("value"))
+    return fetch(url, {
+        method: "PUT",
+        headers: headers,
+        body: JSON.stringify(body)
+    })
+}
+
+export function deleteResources<T>(url: string, body: T) {
+    let headers = new Headers()
+    headers.append('content-type', 'application/json')
+    headers.append('RequestVerificationToken', document.getElementsByName("__RequestVerificationToken")[0].getAttribute("value"))
     return fetch(url, {
         method: "DELETE",
         headers: headers,
-        body: JSON.stringify(id)
+        body: JSON.stringify(body)
     })
 }
 
-export async function getProjects(): Promise<Project[]> {
-    let res = await fetch('/api/projectapi/all')
-    let json = await res.json()
-
-    return json
+export function getProjects(): Promise<Project[]> {
+    return getResources<Project[]>('/api/projectapi/all')
 }
 
 export function getTables(): Promise<string[]> {
-    return fetch("/api/database/tables")
-        .then(res => res.json())
-        .then(json => json as string[])
+    return getResources<string[]>("/api/database/tables")
 }
 
-export async function getColumns(table: string): Promise<TableColumns> {
-    let res = await fetch(`/api/database/${table}/columns`)
-    return await res.json()
+export function getColumns(table: string): Promise<TableColumns> {
+    return getResources<TableColumns>(`/api/database/${table}/columns`)
 }
 
-export async function createRow(table: string): Promise<any> {
-    return await fetch(`/api/${table}api/create`, {
-        method: "POST"
-    })
+export function createRow(table: string): Promise<any> {
+    return postResources(`/api/${table}api/create`, {})
 }
 
-export async function updateRow(table: string, data: any): Promise<any> {
-    let headers = new Headers()
-    headers.append('content-type', 'application/json')
-
-    return await fetch(`/api/${table}api/update`, {
-        method: "PUT",
-        headers: headers,
-        body: JSON.stringify(data)
-    })
+export function updateRow(table: string, data: any): Promise<any> {
+    return putResources(`/api/${table}api/update`, JSON.stringify(data))
 }
 
-export async function deleteRow(table: string, id: number): Promise<any> {
-    return await fetch(`/api/${table}api/${id}`, {
-        method: "DELETE"
-    })
+export function deleteRow(table: string, id: number): Promise<any> {
+    return deleteResources(`/api/${table}api/${id}`, {})
 }
