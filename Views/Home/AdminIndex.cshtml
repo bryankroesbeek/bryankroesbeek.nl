@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@Html.AntiForgeryToken()
+
+<div id="react-app">Loading...</div>
+
+@section scripts{
+    <script src="~/js/site.js" asp-append-version="true"></script>
+}

@@ -36,6 +36,7 @@ namespace BryankroesbeekNl.Controllers.Api.ModelApi
             return Ok(project);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPost("create")]
         public IActionResult CreateProject()
         {
@@ -54,6 +55,7 @@ namespace BryankroesbeekNl.Controllers.Api.ModelApi
             return Ok(project);
         }
 
+        [ValidateAntiForgeryToken]
         [HttpPut("update")]
         public IActionResult UpdateProject([FromBody] Project updatedProject)
         {
@@ -64,7 +66,7 @@ namespace BryankroesbeekNl.Controllers.Api.ModelApi
             this.Context.SaveChanges();
             return Ok();
         }
-
+        [ValidateAntiForgeryToken]
         [HttpDelete("{id}")]
         public IActionResult DeleteProject(int id)
         {
