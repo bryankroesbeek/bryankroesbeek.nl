@@ -25,6 +25,9 @@ namespace BryankroesbeekNl.Migrations
                     b.Property<long>("CreatedAt")
                         .HasColumnType("bigint(20)");
 
+                    b.Property<long>("ExpiresAt")
+                        .HasColumnType("bigint(20)");
+
                     b.Property<string>("Token")
                         .HasMaxLength(255);
 

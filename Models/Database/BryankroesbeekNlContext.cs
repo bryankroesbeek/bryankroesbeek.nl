@@ -42,6 +42,8 @@ namespace BryankroesbeekNl.Models.Database
                     .HasMaxLength(255);
 
                 entity.Property(e => e.CreatedAt).HasColumnType("bigint(20)");
+                
+                entity.Property(e => e.ExpiresAt).HasColumnType("bigint(20)");
             });
         }
     }

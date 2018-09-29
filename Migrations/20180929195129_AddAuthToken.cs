@@ -14,7 +14,8 @@ namespace BryankroesbeekNl.Migrations
                     Id = table.Column<int>(type: "int(11)", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Token = table.Column<string>(maxLength: 255, nullable: true),
-                    CreatedAt = table.Column<long>(type: "bigint(20)", nullable: false)
+                    CreatedAt = table.Column<long>(type: "bigint(20)", nullable: false),
+                    ExpiresAt = table.Column<long>(type: "bigint(20)", nullable: false)
                 },
                 constraints: table =>
                 {

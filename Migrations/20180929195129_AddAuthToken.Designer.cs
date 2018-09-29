@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BryankroesbeekNl.Migrations
 {
     [DbContext(typeof(BryankroesbeekNlContext))]
-    [Migration("20180928205020_AddAuthToken")]
+    [Migration("20180929195129_AddAuthToken")]
     partial class AddAuthToken
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,9 @@ namespace BryankroesbeekNl.Migrations
                         .HasColumnType("int(11)");
 
                     b.Property<long>("CreatedAt")
+                        .HasColumnType("bigint(20)");
+
+                    b.Property<long>("ExpiresAt")
                         .HasColumnType("bigint(20)");
 
                     b.Property<string>("Token")
