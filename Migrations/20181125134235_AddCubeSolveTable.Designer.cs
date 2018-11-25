@@ -2,14 +2,16 @@
 using BryankroesbeekNl.Models.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BryankroesbeekNl.Migrations
 {
     [DbContext(typeof(BryankroesbeekNlContext))]
-    partial class BryankroesbeekNlContextModelSnapshot : ModelSnapshot
+    [Migration("20181125134235_AddCubeSolveTable")]
+    partial class AddCubeSolveTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
