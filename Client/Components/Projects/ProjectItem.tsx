@@ -1,8 +1,8 @@
 import * as React from 'react'
-import { Repository } from '../../api/types';
+import { Project } from '../../api/types';
 
 type ItemProps = {
-    item: Repository
+    item: Project
 }
 
 export class ProjectItem extends React.Component<ItemProps, {}> {

@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { Repository } from '../../api/types'
+import { Project } from '../../api/types'
 import * as Api from '../../api/api'
 import { ProjectItem } from './ProjectItem';
 
 type ProjectsProps = {}
 
 type ProjectsState = {
-    repos: Repository[] | "loading"
+    repos: Project[] | "loading"
 }
 
 export class Projects extends React.Component<ProjectsProps, ProjectsState>{

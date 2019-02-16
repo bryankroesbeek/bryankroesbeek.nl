@@ -14,6 +14,7 @@
     "gulp-clean-css": "^3.10.0",
     "gulp-concat": "^2.6.1",
     "gulp-sass": "^4.0.1",
+    "lodash": "^4.17.11",
     "moment": "^2.22.2",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
@@ -29,7 +30,8 @@
     "@types/react": "^16.4.14",
     "@types/react-dom": "^16.0.7",
     "@types/react-router": "^4.0.31",
-    "@types/react-router-dom": "^4.3.1"
+    "@types/react-router-dom": "^4.3.1",
+    "@types/lodash": "^4.14.116"
   },
   "repository": {
     "type": "git",

@@ -2,24 +2,21 @@
 using BryankroesbeekNl.Models.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore.Storage.Internal;
-using System;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BryankroesbeekNl.Migrations
 {
     [DbContext(typeof(BryankroesbeekNlContext))]
-    [Migration("20180702194047_InitialMigration")]
+    [Migration("20181215141648_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
-                .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
+                .HasAnnotation("ProductVersion", "2.2.0-rtm-35687")
+                .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
             modelBuilder.Entity("BryankroesbeekNl.Models.Database.Project", b =>
                 {
@@ -32,17 +29,25 @@ namespace BryankroesbeekNl.Migrations
 
                     b.Property<string>("Link")
                         .IsRequired()
-                        .HasMaxLength(255);
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(255)
+                        .HasDefaultValue("");
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasMaxLength(100);
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(100)
+                        .HasDefaultValue("");
 
                     b.Property<int>("Position")
-                        .HasColumnType("int(11)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int(11)")
+                        .HasDefaultValue(0);
 
                     b.Property<bool>("Visible")
-                        .HasColumnType("bit(1)");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit(1)")
+                        .HasDefaultValue(false);
 
                     b.HasKey("Id");
 

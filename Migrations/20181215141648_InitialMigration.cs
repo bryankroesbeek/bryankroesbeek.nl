@@ -1,7 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using System;
-using System.Collections.Generic;
 
 namespace BryankroesbeekNl.Migrations
 {
@@ -15,11 +13,11 @@ namespace BryankroesbeekNl.Migrations
                 {
                     Id = table.Column<int>(type: "int(11)", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Name = table.Column<string>(maxLength: 100, nullable: false, defaultValue: ""),
+                    Link = table.Column<string>(maxLength: 255, nullable: false, defaultValue: ""),
                     Description = table.Column<string>(type: "text", nullable: true),
-                    Link = table.Column<string>(maxLength: 255, nullable: false),
-                    Name = table.Column<string>(maxLength: 100, nullable: false),
-                    Position = table.Column<int>(type: "int(11)", nullable: false),
-                    Visible = table.Column<bool>(type: "bit(1)", nullable: false)
+                    Position = table.Column<int>(type: "int(11)", nullable: false, defaultValue: 0),
+                    Visible = table.Column<bool>(type: "bit(1)", nullable: false, defaultValue: false)
                 },
                 constraints: table =>
                 {

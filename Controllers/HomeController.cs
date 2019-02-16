@@ -18,6 +18,13 @@ namespace BryankroesbeekNl.Controllers
             return View();
         }
 
+        [HttpGet("/admin")]
+        [HttpGet("/admin/{*url}")]
+        public IActionResult AdminIndex()
+        {
+            return View();
+        }
+
         [HttpGet("{*url}")]
         public IActionResult PageNotFound()
         {
