@@ -6,10 +6,6 @@ import { Projects } from './Components/Projects/Projects'
 import { Header } from './Components/Header'
 import { Footer } from './Components/Footer'
 
-import { Sidebar } from './Components/Admin/Sidebar/Sidebar'
-import { Login } from './Components/Admin/Login/Login'
-import { Tables } from './Components/Admin/Tables/Tables'
-
 import * as Types from './api/types'
 import { About } from './Components/About/About';
 import { NotFound } from './Components/Various/NotFound';
@@ -34,39 +30,22 @@ export class MainRouter extends React.Component<{}, MainState>{
         return (
             <BrowserRouter>
                 <div className="page">
-                    <Switch>
-                        <Route exact path="/admin/login" component={Login} />
-                        <Route path="/admin"><>
-                            <div className="admin-content">
-                                <Sidebar />
-                                <div className="admin-table-content">
-                                    <div className="admin-header" />
-                                    <Switch>
-                                        <Route path="/admin/:table" component={({ match }: any) => <Tables table={match.params['table']} />} />
-                                    </Switch>
-                                </div>
-                            </div>
-                        </></Route>
+                    <Route path={"*"} component={({ match }: any) => <Header currentLink={match.url} links={this.state.links} />} />
+                    <div className="page-content">
+                        <div className="content" >
+                            <Switch>
+                                <Route exact path="/" component={() => <Home />} />
+                                <Route path="/projects" component={() => <Projects />} />
 
-                        <Route><>
-                            <Route path={"*"} component={({ match }: any) => <Header currentLink={match.url} links={this.state.links} />} />
-                            <div className="page-content">
-                                <div className="content" >
-                                    <Switch>
-                                        <Route exact path="/" component={() => <Home />} />
-                                        <Route path="/projects" component={() => <Projects />} />
-
-                                        <Route component={() => <NotFound />} />
-                                    </Switch>
-                                </div>
-                            </div>
-                            <Footer socialLinks={[
-                                { title: "Twitter", link: "https://www.twitter.com/bryankroesbeek" },
-                                { title: "LinkedIn", link: "https://www.linkedin.com/in/bryan-kroesbeek-089944121/" },
-                                { title: "Github", link: "https://www.github.com/bryankroesbeek" },
-                                { title: "Gitlab", link: "https://www.gitlab.com/limecta" }]} />
-                        </></Route>
-                    </Switch>
+                                <Route component={() => <NotFound />} />
+                            </Switch>
+                        </div>
+                    </div>
+                    <Footer socialLinks={[
+                        { title: "Twitter", link: "https://www.twitter.com/bryankroesbeek" },
+                        { title: "LinkedIn", link: "https://www.linkedin.com/in/bryan-kroesbeek-089944121/" },
+                        { title: "Github", link: "https://www.github.com/bryankroesbeek" },
+                        { title: "Gitlab", link: "https://www.gitlab.com/limecta" }]} />
                 </div>
             </BrowserRouter>
         )
