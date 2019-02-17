@@ -12,10 +12,11 @@ export type Project = {
     visible: boolean
 }
 
-export type TableColumns = {
-    name: string,
-    columns: {
-        name: string,
-        type: string
-    }[]
+export type Experience = {
+    id: number
+    company: string
+    position: string
+    startYear: number
+    endYear: number
+    description: string
 }

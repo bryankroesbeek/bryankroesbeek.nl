@@ -2,9 +2,11 @@ import * as React from 'react'
 import { BrowserRouter, Route, Link, Redirect, Switch } from 'react-router-dom'
 
 import { Home } from './Components/Home/Home'
-import { Projects } from './Components/Projects/Projects'
 import { Header } from './Components/Header'
 import { Footer } from './Components/Footer'
+
+import { Projects } from './Components/Projects/Projects'
+import { ExperienceComponent } from './Components/Experience/Experience'
 
 import * as Types from './api/types'
 import { About } from './Components/About/About';
@@ -21,7 +23,8 @@ export class MainRouter extends React.Component<{}, MainState>{
         this.state = {
             links: [
                 { title: "Home", url: "/" },
-                { title: "Projecten", url: "/projects" }
+                { title: "Werkervaring", url: "/experience" },
+                { title: "Projecten", url: "/projects" },
             ]
         }
     }
@@ -36,6 +39,7 @@ export class MainRouter extends React.Component<{}, MainState>{
                             <Switch>
                                 <Route exact path="/" component={() => <Home />} />
                                 <Route path="/projects" component={() => <Projects />} />
+                                <Route path="/experience" component={() => <ExperienceComponent />} />
 
                                 <Route component={() => <NotFound />} />
                             </Switch>
