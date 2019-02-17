@@ -1,4 +1,4 @@
-import { Project, TableColumns } from "./types";
+import { Project, Experience } from "./types";
 
 export function getResources<T>(url: string) {
     return fetch(url)
@@ -8,4 +8,8 @@ export function getResources<T>(url: string) {
 
 export function getProjects(): Promise<Project[]> {
     return getResources<Project[]>('/api/projectapi/all')
+}
+
+export function getExperiences(): Promise<Experience[]> {
+    return getResources<Experience[]>('/api/experience/all')
 }
