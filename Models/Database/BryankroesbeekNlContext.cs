@@ -8,6 +8,7 @@ namespace BryankroesbeekNl.Models.Database
     {
         public BryankroesbeekNlContext(DbContextOptions<BryankroesbeekNlContext> options) : base(options) { }
         public virtual DbSet<Project> Project { get; set; }
+        public virtual DbSet<Experience> Experience { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
