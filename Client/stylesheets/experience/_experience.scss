@@ -1,0 +1,57 @@
+.experience-content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.experience-header{
+    margin: 10px 10px;
+    h1 {
+        font-family: 'Raleway';
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+}
+
+.experience-view{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    width: 100%;
+}
+
+.experience-item{
+    display: inline-flex;
+    border: 2px solid #1cdb56;
+    flex-direction: column;
+    margin: 15px;
+    padding: 20px 25px;
+    background: #363636d0;
+    border-radius: 3px;
+    color: #eeeeee;
+}
+
+.experience-company{
+    font-family: 'Raleway';
+    font-weight: 300;
+}
+
+.experience-position{
+    font-family: 'Raleway';
+    font-weight: 400;
+    margin: 10px 10px;
+    color: #1cdb56;
+}
+
+.experience-description{
+    font-family: 'Roboto';
+    font-weight: 400;
+    margin: 5px 10px 15px 10px;
+}
+
+.experience-duration{
+    font-family: 'Open Sans';
+    font-weight: 600;
+    margin: 0 10px 10px 10px;
+    color: #1cdb56;
+}
