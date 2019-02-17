@@ -36,49 +36,27 @@ namespace BryankroesbeekNl.Models.Database
                     .HasDefaultValue(false);
             });
 
-            modelBuilder.Entity<CubeSolve>(entity =>
+            modelBuilder.Entity<Experience>(entity =>
             {
-                entity.HasKey(e => e.Id);
+                entity.Property(e => e.Id).HasColumnType("int(11)");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int(11)");
+                entity.Property(e => e.Description).HasColumnType("text");
 
-                entity.Property(e => e.PuzzleType)
+                entity.Property(e => e.Company)
                     .IsRequired()
-                    .HasMaxLength(100)
-                    .HasDefaultValue("");
-
-                entity.Property(e => e.Scramble)
                     .HasMaxLength(255)
                     .HasDefaultValue("");
 
-                entity.Property(e => e.Time)
-                    .HasColumnType("int(11)")
-                    .HasDefaultValue(0);
-
-                entity.Property(e => e.Penalty)
-                    .HasMaxLength(100)
+                entity.Property(e => e.Position)
+                    .IsRequired()
+                    .HasMaxLength(255)
                     .HasDefaultValue("");
 
-                entity.Property(e => e.TimeStampSolved)
-                    .HasColumnType("bigint(20)");
-            });
+                entity.Property(e => e.StartYear)
+                    .HasDefaultValue(null);
 
-            modelBuilder.Entity<AuthToken>(entity =>
-            {
-                entity.HasKey(e => e.Id);
-
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int(11)");
-
-                entity.Property(e => e.Token)
-                    .HasMaxLength(255);
-
-                entity.Property(e => e.CreatedAt).HasColumnType("bigint(20)");
-
-                entity.Property(e => e.ExpiresAt).HasColumnType("bigint(20)");
+                entity.Property(e => e.EndYear)
+                    .HasDefaultValue(null);
             });
         }
     }
