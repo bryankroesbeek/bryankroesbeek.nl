@@ -35,48 +35,5 @@ namespace BryankroesbeekNl.Controllers.Api.ModelApi
             if (project == null) return NotFound();
             return Ok(project);
         }
-
-        [ValidateAntiForgeryToken]
-        [HttpPost("create")]
-        public IActionResult CreateProject()
-        {
-            var project = new Project
-            {
-                Name = "",
-                Link = "",
-                Description = "",
-                Position = this.Context.Project.OrderByDescending(p => p.Position).FirstOrDefault().Position + 1,
-                Visible = false
-            };
-
-            this.Context.Project.Add(project);
-            this.Context.SaveChanges();
-
-            return Ok(project);
-        }
-
-        [ValidateAntiForgeryToken]
-        [HttpPut("update")]
-        public IActionResult UpdateProject([FromBody] Project updatedProject)
-        {
-            var exists = this.Context.Project.Any(p => p.Id == updatedProject.Id);
-            if (!exists) return BadRequest();
-
-            this.Context.Project.Update(updatedProject);
-            this.Context.SaveChanges();
-            return Ok();
-        }
-        [ValidateAntiForgeryToken]
-        [HttpDelete("{id}")]
-        public IActionResult DeleteProject(int id)
-        {
-            var project = this.Context.Project.Where(p => p.Id == id).SingleOrDefault();
-            if (project == null) return BadRequest();
-
-            this.Context.Project.Remove(project);
-            this.Context.SaveChanges();
-
-            return Ok();
-        }
     }
 }
