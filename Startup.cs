@@ -25,7 +25,7 @@ namespace BryankroesbeekNl
         {
             services.AddDbContext<BryankroesbeekNlContext>(options =>
             {
-                options.UseMySql(Configuration.GetConnectionString("BryankroesbeekNlConnection"));
+                options.UseNpgsql(Configuration.GetConnectionString("BryankroesbeekNlConnection"));
             });
 
             services.AddSingleton<IConfiguration>(Configuration);

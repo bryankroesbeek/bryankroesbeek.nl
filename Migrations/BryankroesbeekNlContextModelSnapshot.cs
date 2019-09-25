@@ -4,6 +4,7 @@ using BryankroesbeekNl.Models.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace BryankroesbeekNl.Migrations
 {
@@ -14,14 +15,14 @@ namespace BryankroesbeekNl.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.2.1-servicing-10028")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.SerialColumn)
+                .HasAnnotation("ProductVersion", "2.2.6-servicing-10079")
+                .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             modelBuilder.Entity("BryankroesbeekNl.Models.Database.Experience", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int(11)");
+                        .ValueGeneratedOnAdd();
 
                     b.Property<string>("Company")
                         .IsRequired()
@@ -29,8 +30,7 @@ namespace BryankroesbeekNl.Migrations
                         .HasMaxLength(255)
                         .HasDefaultValue("");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
+                    b.Property<string>("Description");
 
                     b.Property<int?>("EndYear")
                         .ValueGeneratedOnAdd()
@@ -54,11 +54,9 @@ namespace BryankroesbeekNl.Migrations
             modelBuilder.Entity("BryankroesbeekNl.Models.Database.Project", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int(11)");
+                        .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Description")
-                        .HasColumnType("text");
+                    b.Property<string>("Description");
 
                     b.Property<string>("Link")
                         .IsRequired()
@@ -74,12 +72,10 @@ namespace BryankroesbeekNl.Migrations
 
                     b.Property<int>("Position")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int(11)")
                         .HasDefaultValue(0);
 
                     b.Property<bool>("Visible")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("bit(1)")
                         .HasDefaultValue(false);
 
                     b.HasKey("Id");

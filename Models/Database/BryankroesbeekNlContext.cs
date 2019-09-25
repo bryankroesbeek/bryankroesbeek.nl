@@ -14,9 +14,10 @@ namespace BryankroesbeekNl.Models.Database
         {
             modelBuilder.Entity<Project>(entity =>
             {
-                entity.Property(e => e.Id).HasColumnType("int(11)");
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd();
 
-                entity.Property(e => e.Description).HasColumnType("text");
+                entity.Property(e => e.Description);
 
                 entity.Property(e => e.Link)
                     .IsRequired()
@@ -29,19 +30,18 @@ namespace BryankroesbeekNl.Models.Database
                     .HasDefaultValue("");
 
                 entity.Property(e => e.Position)
-                    .HasColumnType("int(11)")
                     .HasDefaultValue(0);
 
                 entity.Property(e => e.Visible)
-                    .HasColumnType("bit(1)")
                     .HasDefaultValue(false);
             });
 
             modelBuilder.Entity<Experience>(entity =>
             {
-                entity.Property(e => e.Id).HasColumnType("int(11)");
+                entity.Property(e => e.Id)
+                    .ValueGeneratedOnAdd();
 
-                entity.Property(e => e.Description).HasColumnType("text");
+                entity.Property(e => e.Description);
 
                 entity.Property(e => e.Company)
                     .IsRequired()
