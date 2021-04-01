@@ -37,11 +37,11 @@ export class MainRouter extends React.Component<{}, MainState>{
                     <div className="page-content">
                         <div className="content" >
                             <Switch>
-                                <Route exact path="/" component={() => <Home />} />
-                                <Route path="/projects" component={() => <Projects />} />
-                                <Route path="/experience" component={() => <ExperienceComponent />} />
+                                <Route path="/" component={() => <Home />} />
+                                {/* <Route path="/projects" component={() => <Projects />} />
+                                <Route path="/experience" component={() => <ExperienceComponent />} /> */}
 
-                                <Route component={() => <NotFound />} />
+                                {/* <Route component={() => <NotFound />} /> */}
                             </Switch>
                         </div>
                     </div>
@@ -49,7 +49,7 @@ export class MainRouter extends React.Component<{}, MainState>{
                         { title: "Twitter", link: "https://www.twitter.com/bryankroesbeek" },
                         { title: "LinkedIn", link: "https://www.linkedin.com/in/bryan-kroesbeek-089944121/" },
                         { title: "Github", link: "https://www.github.com/bryankroesbeek" },
-                        { title: "Gitlab", link: "https://www.gitlab.com/limecta" }]} />
+                        { title: "Gitlab", link: "https://www.gitlab.com/bryankroesbeek" }]} />
                 </div>
             </BrowserRouter>
         )

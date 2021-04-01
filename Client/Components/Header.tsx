@@ -44,15 +44,15 @@ export class Header extends React.Component<Props, State> {
                     <div className="header__content">
                         <Link className="header__name" to="/">Bryan Kroesbeek</Link>
                         <div className={`header__nav ${this.state.opened_mobile ? "mobile-visible" : ""}`}>
-                            {this.renderLinks()}
+                            {/* {this.renderLinks()} */}
                         </div>
-                        <Link to="#" className={`header-icon__responsive ${this.state.opened_mobile ? "active" : ""}`} onClick={() => {
+                        {/* <Link to="#" className={`header-icon__responsive ${this.state.opened_mobile ? "active" : ""}`} onClick={() => {
                             this.setState({ ...this.state, opened_mobile: !this.state.opened_mobile })
                         }} >
                             <span className="header-icon-icon">
                                 <HamburgerMenuIcon active={this.state.opened_mobile} />
                             </span>
-                        </Link>
+                        </Link> */}
                     </div>
                 </div>
             </header>
