@@ -11,16 +11,14 @@ export class Home extends React.Component<{}, {}>{
     render() {
         return (<>
             <div className="home-introduction">
-                <img className="introduction-image" src="/images/bryan.jpg" alt="This is me" />
+                {/* <img className="introduction-image" src="/images/bryan.jpg" alt="This is me" /> */}
                 <div className="introduction-section">
                     <div className="section-text">
-                        <h1>Welkom</h1>
-                        <p>Op mijn website</p>
+                        <h1>Onder Constructie</h1>
                     </div>
                 </div>
             </div>
 
-            <About />
         </>)
     }
 }
